@@ -137,7 +137,7 @@ export default function HeroSection({ personalInfo }: Props) {
               >
                 <IconBrandMastodon />{" "}
                 <a rel="me" href="https://social.vivaldi.net/@thanksstevenkim">
-                  Mastodon
+                  Vivaldi Social
                 </a>
               </motion.a>
             </motion.div>
