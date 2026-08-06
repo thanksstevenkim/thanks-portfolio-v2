@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import type { MotionProps } from "framer-motion";
+import type { MotionProps, Variants } from "framer-motion";
 
 interface MotionWrapperProps extends MotionProps {
   children: React.ReactNode;
@@ -15,11 +15,11 @@ const defaultAnimations = {
     y: 0,
     transition: {
       duration: 0.6,
-      delay: delay,
-      ease: "easeOut",
+      delay,
+      ease: "easeOut" as const,
     },
   }),
-};
+} satisfies Variants;
 
 export default function MotionWrapper({
   children,
