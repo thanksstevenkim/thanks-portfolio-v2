@@ -10,6 +10,7 @@ export type PersonalInfo = {
   email: string;
   github: string;
   mastodon: string;
+  mastodon2: string;
   bio: string;
 };
 

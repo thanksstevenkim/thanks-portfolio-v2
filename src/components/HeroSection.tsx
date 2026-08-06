@@ -126,6 +126,20 @@ export default function HeroSection({ personalInfo }: Props) {
                   Mastodon
                 </a>
               </motion.a>
+
+              <motion.a
+                href={personalInfo.mastodon2}
+                target="_blank"
+                rel="me"
+                className="flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
+                variants={childVariants}
+                whileHover={{ scale: 1.05, color: "#4b5563" }}
+              >
+                <IconBrandMastodon />{" "}
+                <a rel="me" href="https://social.vivaldi.net/@thanksstevenkim">
+                  Mastodon
+                </a>
+              </motion.a>
             </motion.div>
           </div>
 

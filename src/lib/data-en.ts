@@ -11,6 +11,7 @@ export const personalInfo: PersonalInfo = {
   email: "stevenkim0325@gmail.com",
   github: "https://github.com/thanksstevenkim",
   mastodon: "https://mustard.blog/@thanksstevenkim",
+  mastodon2: "https://social.vivaldi.net/@thanksstevenkim",
   bio: 'A developer exploring technical independence through operating a Mastodon server, frontend development, and backend infrastructure. Known online as "thanksstevenkim." Proficient in Korean (native), Japanese (JLPT N1), and English (TOEIC 810), with strong communication and documentation skills in multilingual environments.',
 };
 
