@@ -10,7 +10,7 @@ export const personalInfo: PersonalInfo = {
   ],
   email: "stevenkim0325@gmail.com",
   github: "https://github.com/thanksstevenkim",
-  mastodon: "https://mustard.blog/@thanksstevenkim",
+  mastodon: "https://mustard.blog/@mustard",
   mastodon2: "https://social.vivaldi.net/@thanksstevenkim",
   bio: "Mastodon サーバーの運営からフロントエンド開発、サーバー管理まで経験し、技術的自立を追求する開発者「thanksstevenkim」です。韓国語（母語）、日本語（JLPT N1）、英語（TOEIC 810）の3言語を使用可能で、多言語環境でのコミュニケーションや文書作成にも慣れています。",
 };

@@ -122,8 +122,8 @@ export default function HeroSection({ personalInfo }: Props) {
                 whileHover={{ scale: 1.05, color: "#4b5563" }}
               >
                 <IconBrandMastodon />{" "}
-                <a rel="me" href="https://mustard.blog/@thanksstevenkim">
-                  Mastodon
+                <a rel="me" href="https://mustard.blog/@mustard">
+                  Mastodon (Admin)
                 </a>
               </motion.a>
 
