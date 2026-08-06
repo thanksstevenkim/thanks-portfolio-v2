@@ -114,31 +114,27 @@ export default function HeroSection({ personalInfo }: Props) {
               </motion.a>
 
               <motion.a
-                href={personalInfo.mastodon}
+                href="https://mustard.blog/@mustard"
                 target="_blank"
-                rel="me"
+                rel="me noopener noreferrer"
                 className="flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
                 variants={childVariants}
                 whileHover={{ scale: 1.05, color: "#4b5563" }}
               >
-                <IconBrandMastodon />{" "}
-                <a rel="me" href="https://mustard.blog/@mustard">
-                  Mastodon (Admin)
-                </a>
+                <IconBrandMastodon />
+                Mastodon (Admin)
               </motion.a>
 
               <motion.a
-                href={personalInfo.mastodon2}
+                href="https://social.vivaldi.net/@thanksstevenkim"
                 target="_blank"
-                rel="me"
+                rel="me noopener noreferrer"
                 className="flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
                 variants={childVariants}
                 whileHover={{ scale: 1.05, color: "#4b5563" }}
               >
-                <IconBrandMastodon />{" "}
-                <a rel="me" href="https://social.vivaldi.net/@thanksstevenkim">
-                  Vivaldi Social
-                </a>
+                <IconBrandMastodon />
+                Vivaldi Social
               </motion.a>
             </motion.div>
           </div>
