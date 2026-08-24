@@ -10,6 +10,7 @@ Steven Kim의 다국어 IT Support, Technical Support, 시스템·인프라 운�
 - 실제 저장소와 운영 문서에 근거한 프로젝트 카드
 - Cloudflare 521, Elasticsearch 구성 불일치, database migration, fork drift CI 복구 사례
 - Systems & Operations 중심의 기술 분류
+- locale별 이력서 PDF 다운로드: 한국어, English, 日本語
 
 ## 대표 프로젝트
 

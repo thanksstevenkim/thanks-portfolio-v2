@@ -22,6 +22,10 @@ export const personalInfo: PersonalInfo = {
   github: "https://github.com/thanksstevenkim",
   mastodon: "https://mustard.blog/@mustard",
   mastodon2: "https://social.vivaldi.net/@thanksstevenkim",
+  resume: {
+    href: "/resumes/steven-kim-resume-ko.pdf",
+    label: "한국어 이력서 PDF 다운로드",
+  },
   bio: "2022년부터 공개 Mastodon 서비스를 운영하며 Linux, Docker Compose, Nginx, PostgreSQL, Redis 환경의 업그레이드, 장애 조사, 복구 검증과 운영 문서화를 수행해 왔습니다. 한국어·일본어·영어로 사용자와 기술 맥락을 연결하는 IT·Technical Support 및 시스템 운영 업무를 지향하며, 클라우드·인프라 운영 역량을 확장하고 있습니다.",
 };
 

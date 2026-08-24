@@ -5,6 +5,7 @@ import {
   IconWorld,
   IconBrandGithub,
   IconBrandMastodon,
+  IconFileDownload,
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import MotionWrapper from "./MotionWrapper";
@@ -100,6 +101,18 @@ export default function HeroSection({ personalInfo, labels }: Props) {
               >
                 <IconMail />
                 {personalInfo.email}
+              </motion.a>
+
+              <motion.a
+                href={personalInfo.resume.href}
+                download
+                className="flex w-fit items-center rounded-md border border-purple-500/30 bg-purple-500/10 px-3 py-2 text-sm font-medium text-foreground transition-colors hover:border-purple-500/60 hover:bg-purple-500/20"
+                variants={childVariants}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <IconFileDownload className="mr-2" />
+                {personalInfo.resume.label}
               </motion.a>
 
               <motion.a

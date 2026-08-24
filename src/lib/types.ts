@@ -3,6 +3,11 @@ export type Language = {
   level: string;
 };
 
+export type Resume = {
+  href: string;
+  label: string;
+};
+
 export type PersonalInfo = {
   name: string;
   role: string;
@@ -12,6 +17,7 @@ export type PersonalInfo = {
   github: string;
   mastodon: string;
   mastodon2: string;
+  resume: Resume;
   bio: string;
 };
 

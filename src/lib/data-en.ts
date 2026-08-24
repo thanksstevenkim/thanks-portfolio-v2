@@ -22,6 +22,10 @@ export const personalInfo: PersonalInfo = {
   github: "https://github.com/thanksstevenkim",
   mastodon: "https://mustard.blog/@mustard",
   mastodon2: "https://social.vivaldi.net/@thanksstevenkim",
+  resume: {
+    href: "/resumes/steven-kim-resume-en.pdf",
+    label: "Download English resume (PDF)",
+  },
   bio: "Since 2022, I have operated a public Mastodon service across Linux, Docker Compose, Nginx, PostgreSQL, and Redis, handling upgrades, incident investigation, recovery verification, and operational documentation. I am pursuing IT and technical support and systems operations roles where I can connect users with technical context in Korean, Japanese, and English while expanding my cloud and infrastructure operations skills.",
 };
 
