@@ -1,36 +1,43 @@
-# 🌐 thanks-portfolio
+# thanks-portfolio-v2
 
-이 리포지토리는 Astro 공식 블로그 템플릿을 포크하여 개인 포트폴리오 사이트로 커스터마이징한 프로젝트입니다.  
-기술 스택과 프로젝트 소개, 글쓰기를 통합하여 정리하고 있습니다.
+Steven Kim의 다국어 IT Support, Technical Support, 시스템·인프라 운영 경험을 소개하는 개인 포트폴리오입니다.
 
----
+프론트엔드 기술 목록보다 공개 서비스 운영, 장애 조사, 업그레이드, 복구 검증, 운영 문서화와 한국어·일본어·영어 커뮤니케이션을 먼저 보여주도록 구성했습니다.
 
-## 🧰 기술 스택
+## 주요 구성
 
-- Astro
-- Markdown + MDX
-- Tailwind CSS
-- Vercel (배포)
+- 한국어, 영어, 일본어 locale별 포트폴리오
+- 실제 저장소와 운영 문서에 근거한 프로젝트 카드
+- Cloudflare 521, Elasticsearch 구성 불일치, database migration, fork drift CI 복구 사례
+- Systems & Operations 중심의 기술 분류
 
----
+## 대표 프로젝트
 
-## ✍️ 커스터마이징한 내용
+- [`mastodon-lab`](https://github.com/thanksstevenkim/mastodon-lab): 2022년부터 이어진 공개 Mastodon 서비스 운영 기록
+- [`librewiki-homelab`](https://github.com/thanksstevenkim/librewiki-homelab): MediaWiki 호환성·마이그레이션 staging/research 환경
+- [`thanks-wiki`](https://github.com/thanksstevenkim/thanks-wiki): Astro 기반 다국어 개인 위키
+- [`the-hitchhikers-guide-to-the-fediverse`](https://github.com/thanksstevenkim/the-hitchhikers-guide-to-the-fediverse): Fediverse 인스턴스 데이터 수집·검증·탐색 도구
 
-- 포트폴리오 목적에 맞게 레이아웃, 색상, 폰트 수정
-- favicon 및 메타 정보, 사이트 설명 변경
-- 블로그 포스트에 프로젝트/회고 글 추가
-- 앞으로 thanks-wiki와 통합 가능한 구조 고려
+## 개발
 
----
+이 저장소는 npm과 `package-lock.json`을 사용합니다.
 
-## 📌 앞으로의 계획
+```bash
+npm ci
+npm run dev
+```
 
-- React 기반 SPA 포트폴리오 재구축 예정
-- GitHub API 연동으로 자동 프로젝트 목록 구성
-- thanks-wiki 링크 통합 및 사이드 네비게이션 구성
+## 검증
 
----
+```bash
+npm run typecheck
+npm run build
+```
 
-## 🔗 배포 주소
+## 배포
 
-> https://thanksstevenkim.dev
+배포 주소: [https://thanksstevenkim.dev](https://thanksstevenkim.dev)
+
+## License
+
+MIT License. 자세한 내용은 [`LICENSE`](LICENSE)를 확인하세요.

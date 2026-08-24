@@ -1,4 +1,4 @@
-import { PersonalInfo } from "@/lib/types";
+import type { PersonalInfo, UiLabels } from "@/lib/types";
 import {
   IconMapPin,
   IconMail,
@@ -11,9 +11,10 @@ import MotionWrapper from "./MotionWrapper";
 
 type Props = {
   personalInfo: PersonalInfo;
+  labels: UiLabels;
 };
 
-export default function HeroSection({ personalInfo }: Props) {
+export default function HeroSection({ personalInfo, labels }: Props) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -58,7 +59,7 @@ export default function HeroSection({ personalInfo }: Props) {
               className="text-xl text-muted-foreground mb-6"
               variants={childVariants}
             >
-              Software Engineer 👨‍💻
+              {personalInfo.role}
             </motion.p>
 
             <motion.div
@@ -74,7 +75,7 @@ export default function HeroSection({ personalInfo }: Props) {
                 {personalInfo.location}
               </motion.div>
 
-              {personalInfo.languages?.length && (
+              {personalInfo.languages && personalInfo.languages.length > 0 ? (
                 <motion.div
                   className="flex items-center text-sm text-muted-foreground"
                   variants={childVariants}
@@ -82,14 +83,14 @@ export default function HeroSection({ personalInfo }: Props) {
                 >
                   <IconWorld />
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    {personalInfo.languages.map((lang, idx) => (
-                      <li key={idx}>
+                    {personalInfo.languages.map((lang) => (
+                      <li key={lang.name}>
                         {lang.name} – {lang.level}
                       </li>
                     ))}
                   </ul>
                 </motion.div>
-              )}
+              ) : null}
 
               <motion.a
                 href={`mailto:${personalInfo.email}`}
@@ -114,7 +115,7 @@ export default function HeroSection({ personalInfo }: Props) {
               </motion.a>
 
               <motion.a
-                href="https://mustard.blog/@mustard"
+                href={personalInfo.mastodon}
                 target="_blank"
                 rel="me noopener noreferrer"
                 className="flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -122,11 +123,11 @@ export default function HeroSection({ personalInfo }: Props) {
                 whileHover={{ scale: 1.05, color: "#4b5563" }}
               >
                 <IconBrandMastodon />
-                Mastodon (Admin)
+                {labels.mastodonAdmin}
               </motion.a>
 
               <motion.a
-                href="https://social.vivaldi.net/@thanksstevenkim"
+                href={personalInfo.mastodon2}
                 target="_blank"
                 rel="me noopener noreferrer"
                 className="flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -134,7 +135,7 @@ export default function HeroSection({ personalInfo }: Props) {
                 whileHover={{ scale: 1.05, color: "#4b5563" }}
               >
                 <IconBrandMastodon />
-                Vivaldi Social
+                {labels.vivaldiSocial}
               </motion.a>
             </motion.div>
           </div>
@@ -149,7 +150,7 @@ export default function HeroSection({ personalInfo }: Props) {
               <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
               <img
                 src="/profile.jpg"
-                alt="Profile"
+                alt={labels.profileAlt}
                 className="w-48 md:w-60 rounded-full relative ring-2 ring-purple-500/50"
                 style={{ objectFit: "cover" }}
               />

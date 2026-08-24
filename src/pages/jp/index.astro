@@ -4,6 +4,7 @@ import GlassHeader from "@/components/GlassHeader";
 import HeroSection from "@/components/HeroSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import OperationalCasesSection from "@/components/OperationalCasesSection";
 import EducationSection from "@/components/EducationSection";
 import Footer from "@/components/Footer";
 
@@ -11,17 +12,44 @@ import {
   personalInfo,
   skills,
   projects,
+  operationalCases,
   education,
+  ui,
 } from "@/lib/data-jp";
 ---
 
-<Layout>
-  <GlassHeader client:only="react" />
+<Layout title={ui.pageTitle} description={ui.pageDescription} lang={ui.lang}>
+  <GlassHeader
+    client:only="react"
+    name={personalInfo.name}
+    sections={ui.sections}
+    menuToggleLabel={ui.menuToggle}
+  />
   <main class="min-h-screen">
-    <HeroSection client:only="react" personalInfo={personalInfo} />
-    <SkillsSection client:only="react" data={skills} />
-    <ProjectsSection client:only="react" data={projects} />
-    <EducationSection client:only="react" data={education} />
+    <HeroSection client:only="react" personalInfo={personalInfo} labels={ui} />
+    <ProjectsSection
+      client:only="react"
+      data={projects}
+      title={ui.sections.projects}
+      repositoryLabel={ui.repositoryLabel}
+    />
+    <OperationalCasesSection
+      client:only="react"
+      data={operationalCases}
+      title={ui.sections.operations}
+    />
+    <SkillsSection client:only="react" data={skills} title={ui.sections.skills} />
+    <EducationSection
+      client:only="react"
+      data={education}
+      title={ui.sections.education}
+      highlightsLabel={ui.educationHighlights}
+    />
   </main>
-  <Footer client:only="react" />
+  <Footer
+    client:only="react"
+    name={personalInfo.name}
+    rightsText={ui.footerRights}
+    builtWithText={ui.footerBuiltWith}
+  />
 </Layout>

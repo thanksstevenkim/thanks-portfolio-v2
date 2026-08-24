@@ -1,88 +1,201 @@
-import type { PersonalInfo, Education, Skills, Projects } from "./types";
+import type {
+  Education,
+  OperationalCases,
+  PersonalInfo,
+  Projects,
+  Skills,
+  UiLabels,
+} from "./types";
+
+const mastodonLab = "https://github.com/thanksstevenkim/mastodon-lab";
 
 export const personalInfo: PersonalInfo = {
   name: 'Steven "thx" Kim',
+  role: "Multilingual IT Support & Systems Operations",
   location: "Daejeon, South Korea",
   languages: [
     { name: "Korean", level: "Native" },
     { name: "Japanese", level: "Fluent (JLPT N1)" },
-    { name: "English", level: "Intermediate (TOEIC 810)" },
+    { name: "English", level: "Upper-intermediate (TOEIC 810)" },
   ],
   email: "stevenkim0325@gmail.com",
   github: "https://github.com/thanksstevenkim",
   mastodon: "https://mustard.blog/@mustard",
   mastodon2: "https://social.vivaldi.net/@thanksstevenkim",
-  bio: 'A developer exploring technical independence through operating a Mastodon server, frontend development, and backend infrastructure. Known online as "thanksstevenkim." Proficient in Korean (native), Japanese (JLPT N1), and English (TOEIC 810), with strong communication and documentation skills in multilingual environments.',
+  bio: "Since 2022, I have operated a public Mastodon service across Linux, Docker Compose, Nginx, PostgreSQL, and Redis, handling upgrades, incident investigation, recovery verification, and operational documentation. I am pursuing IT and technical support and systems operations roles where I can connect users with technical context in Korean, Japanese, and English while expanding my cloud and infrastructure operations skills.",
+};
+
+export const ui: UiLabels = {
+  lang: "en",
+  pageTitle: "Steven Kim | Multilingual IT Support & Systems Operations",
+  pageDescription:
+    "Steven Kim's portfolio focused on multilingual IT support, technical support, Linux service operations, and operational documentation.",
+  profileAlt: "Portrait of Steven Kim",
+  menuToggle: "Open or close navigation",
+  repositoryLabel: "GitHub repository",
+  educationHighlights: "Education details",
+  mastodonAdmin: "Mastodon administrator",
+  vivaldiSocial: "Vivaldi Social",
+  footerRights: "All rights reserved.",
+  footerBuiltWith: "Built with Astro and React",
+  sections: {
+    projects: "Selected Projects",
+    operations: "Selected Operational Cases",
+    skills: "Skills",
+    education: "Education",
+  },
 };
 
 export const education: Education = [
   {
     institution: "Hanbat National University",
     location: "Daejeon, South Korea",
-    degree:
-      "Department of Information & Communication Engineering, College of Information Technology",
+    degree: "Bachelor of Engineering in Information and Communication Engineering",
     period: "Mar 2017 - Feb 2026",
-    achievements: ["Bachelor of Engineering, expected in February 2026"],
+    achievements: ["Graduated in February 2026"],
   },
 ];
-export const skills: Skills = {
-  programmingLanguages: ["JavaScript", "Python", "Java", "TypeScript"],
-  frontendDevelopment: ["Tailwind CSS", "HTML", "CSS", "Astro", "Remix"],
-  backendDevelopment: ["Nodejs"],
-  databaseAndStorage: ["PostgreSQL", "Prisma ORM"],
-  cloudAndDevOps: ["AWS", "AWS S3", "OVHCloud", "Vultr", "Fly.io", "Vercel"],
-  toolsAndServices: [
-    "Git",
-    "GitHub",
-    "Linux (Ubuntu)",
-    "Nginx",
-    "Docker (Beginner)",
-    "Notion",
-    "ChatGPT",
-    "VSCode",
-    "Mermaid",
-  ],
-};
+
+export const skills: Skills = [
+  {
+    title: "Systems & Operations",
+    icon: "🖥️",
+    items: [
+      "Linux (Ubuntu)",
+      "Docker Compose",
+      "Git / GitHub",
+      "GitHub Actions",
+      "Mastodon Operations",
+      "Incident Investigation",
+      "Upgrade & Rollback Procedures",
+      "Backup & Restore Testing",
+      "AWS / S3",
+      "OVHcloud",
+      "Vultr",
+      "Fly.io",
+      "Vercel",
+    ],
+  },
+  {
+    title: "Databases & Web Infrastructure",
+    icon: "🌐",
+    items: [
+      "PostgreSQL",
+      "Redis",
+      "MariaDB",
+      "Nginx",
+      "Cloudflare",
+      "Elasticsearch",
+      "PHP-FPM",
+      "MediaWiki",
+    ],
+  },
+  {
+    title: "Documentation & Communication",
+    icon: "📝",
+    items: [
+      "Operational Runbooks",
+      "Incident Reports",
+      "Update Logs",
+      "Markdown",
+      "Mermaid",
+      "Korean (Native)",
+      "Japanese (JLPT N1)",
+      "English (TOEIC 810)",
+    ],
+  },
+  {
+    title: "Web Development",
+    icon: "💻",
+    items: [
+      "Astro",
+      "TypeScript",
+      "JavaScript",
+      "Python",
+      "HTML / CSS",
+      "Tailwind CSS",
+      "Remix",
+      "Node.js",
+    ],
+  },
+];
 
 export const projects: Projects = [
   {
-    title: "Mustard",
-    github: "https://github.com/thanksstevenkim/mastodon-v2",
+    title: "mastodon-lab",
+    github: mastodonLab,
     description: [
-      "- Operating and maintaining the decentralized Mastodon server: mustard.blog",
-      "- Managed infrastructure including VPS, PostgreSQL, Sidekiq, Nginx, and SSL setup",
-      "- Optimized traffic using cache strategy and media proxy configuration",
-      "- Customized the frontend using Bird UI and tailored onboarding flows",
-      "- Currently tracking user count, post volume, and monthly active statistics",
-      "- Planning to implement GitHub Actions for CI/CD deployment",
+      "Operated a public Mastodon service since November 2022, taking responsibility for availability, upgrades, user access, and federation checks.",
+      "Investigated incidents and changed configurations across Ubuntu, Docker Compose, Nginx, PostgreSQL, Redis, and Cloudflare.",
+      "Ran version upgrades, database migrations, pre-deployment backup checks, rollback planning, and post-deployment validation.",
+      "Recorded causes, resolutions, preventive actions, and verification results in reproducible runbooks, incident reports, and update logs.",
+    ],
+    evidence: [
+      { label: "Runbooks", href: `${mastodonLab}/tree/main/runbooks` },
+      { label: "Incidents", href: `${mastodonLab}/tree/main/incidents` },
+      { label: "Update logs", href: `${mastodonLab}/tree/main/update-log` },
     ],
   },
   {
-    title: "Thanks-wiki",
+    title: "librewiki-homelab",
+    github: "https://github.com/thanksstevenkim/librewiki-homelab",
+    description: [
+      "Built an unofficial staging and research environment—not a Libre Wiki service or mirror—to test compatibility and content migration safely.",
+      "Administered Nginx, PHP-FPM, MariaDB, MediaWiki, and the Liberty skin on an Ubuntu Server VM in UTM over SSH.",
+      "Imported small sets of pages and revision history, then identified and configured TemplateStyles, ParserFunctions, Cite, Gadgets, and CSS dependencies.",
+      "Restored a MariaDB dump into a separate test database and checked the tables to verify that the backup was recoverable.",
+    ],
+  },
+  {
+    title: "thanks-wiki",
     github: "https://github.com/thanksstevenkim/thanks-wiki",
     description: [
-      "- Built a lightweight static tech wiki using Astro + TypeScript",
-      "- Deployed under the thanksstevenkim.dev domain with multilingual routes (/docs/[lang]/[slug]) for Korean, English, and Japanese",
-      "- Structured as a read-only markdown-based wiki optimized for performance",
-      "- Implemented multilingual routing with getStaticPaths and Astro Content Collections",
-      "- Configured astro.config.mjs and tsconfig.json for aliasing and type safety",
-      "- Custom layout in progress (DocLayout.astro) with plans for sidebar, SEO, and language switching",
-      "- Tailwind CSS enabled for design customization and theme testing",
-      "- Resolved technical issues: astro:content import errors, slug parameter mismatches, alias path conflicts, and more",
-      "- Purpose: to archive decentralized web, ActivityPub, and open-source concepts for personal reference",
-      "- Set up GitHub repo with version-controlled content for potential open-source contributions",
+      "Implemented an Astro-based static wiki for structuring and retaining personal observations and documentation.",
+      "Used a TypeScript schema and dynamic routes to provide locale-specific document paths for Korean, English, and Japanese.",
+      "Kept a reading-focused documentation experience through Markdown content, notes/docs information architecture, and shared layouts.",
+      "Versioned content and build configuration with Git and a pnpm lockfile, and deployed the static site on Vercel.",
     ],
   },
   {
-    title: "Jumin-Cheongwon",
-    github: "https://github.com/thanksstevenkim/jumin-cheongwon",
+    title: "the-hitchhikers-guide-to-the-fediverse",
+    github:
+      "https://github.com/thanksstevenkim/the-hitchhikers-guide-to-the-fediverse",
     description: [
-      "- Built a policy petition platform using Remix, including petition submission forms and API routes",
-  "- Designed a district-based user authentication system and dynamic support thresholds based on local population",
-  "- Implemented a civic tech workflow: Petition → Support → Survey → Policy → Feedback",
-  "- Structured database schema using PostgreSQL with Prisma ORM and prepared migrations",
-  "- Optimized form handling and server-side rendering, tested deployments on Fly.io and Vercel",
-  "- Created technical documentation including user flow diagrams (Mermaid) and platform structure overview",
+      "Implemented a static directory for exploring Korean-language Fediverse instances on one page.",
+      "Built search, language/platform/registration filters, and statistics sorting with HTML, CSS, and JavaScript.",
+      "Used Python scripts to collect public API and peer data, verify ActivityPub, separate anomalies, and save incremental results.",
+      "Logged spam and abnormal-domain filtering results and included a workflow for statistics refreshes and GitHub Pages deployment.",
     ],
+  },
+];
+
+export const operationalCases: OperationalCases = [
+  {
+    title: "Cloudflare 521 and Nginx outage",
+    summary:
+      "After an upgrade, the containers and PostgreSQL were healthy but the public service was unreachable. Layer-by-layer checks identified a duplicate, invalid Nginx configuration; validation and restart restored access, and preventive checks were documented.",
+    href: `${mastodonLab}/blob/main/incidents/001-cloudflare-521-after-upgrade.md`,
+    linkLabel: "Read incident report",
+  },
+  {
+    title: "Elasticsearch service-name mismatch",
+    summary:
+      "After an upgrade, Sidekiq lost Elasticsearch connectivity and search and federation were interrupted. Comparing Compose services with ES_HOST exposed a stale hostname; the configuration was backed up, corrected, and recreated successfully.",
+    href: `${mastodonLab}/blob/main/incidents/002-elasticsearch-service-name.md`,
+    linkLabel: "Read incident report",
+  },
+  {
+    title: "Missing upgrade migrations",
+    summary:
+      "Missing columns and tables after a Mastodon 4.6.2 deployment were narrowed down by checking migration status. Required database migrations were run and verified, then added to the standard upgrade procedure.",
+    href: `${mastodonLab}/blob/main/incidents/007-database-migration-incomplete-after-upgrade.md`,
+    linkLabel: "Read incident report",
+  },
+  {
+    title: "CI recovery after fork drift",
+    summary:
+      "Production was upgraded, but security audit, RSpec, and lint jobs remained red. Comparing the fork with a clean worktree at the same upstream tag isolated stale customizations; security fixes were backported and lint finished with exit code 0.",
+    href: `${mastodonLab}/blob/main/incidents/009-github-actions-failures-from-fork-drift.md`,
+    linkLabel: "Read incident report",
   },
 ];

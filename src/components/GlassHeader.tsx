@@ -1,13 +1,30 @@
 import ThemeToggle from "./ui/theme-toggle";
-import { personalInfo } from "@/lib/data";
+import type { SectionLabels } from "@/lib/types";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function GlassHeader() {
+type Props = {
+  name: string;
+  sections: SectionLabels;
+  menuToggleLabel: string;
+};
+
+const navigation = [
+  { id: "projects", icon: "🚀" },
+  { id: "operations", icon: "🧭" },
+  { id: "skills", icon: "🛠️" },
+  { id: "education", icon: "🎓" },
+] as const;
+
+export default function GlassHeader({
+  name,
+  sections,
+  menuToggleLabel,
+}: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => setIsMenuOpen((isOpen) => !isOpen);
 
   return (
     <header className="sticky z-50 w-full backdrop-blur-md backdrop-filter bg-background/70 dark:bg-background/40 border-b border-border/40 supports-[backdrop-filter]:bg-background/60">
@@ -18,25 +35,23 @@ export default function GlassHeader() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          ✨ {personalInfo.name}
+          ✨ {name}
         </motion.a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          {["skills", "projects", "education"].map((item, index) => (
+          {navigation.map((item, index) => (
             <motion.a
-              key={item}
-              href={`#${item}`}
+              key={item.id}
+              href={`#${item.id}`}
               className="transition-colors hover:text-foreground/80 text-foreground/60"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2, delay: index * 0.1 }}
               whileHover={{ y: -2 }}
             >
-              {item === "skills" && "🛠️ "}
-              {item === "projects" && "🚀 "}
-              {item === "education" && "🎓 "}
-              {item.charAt(0).toUpperCase() + item.slice(1)}
+              <span aria-hidden="true">{item.icon} </span>
+              {sections[item.id]}
             </motion.a>
           ))}
         </nav>
@@ -60,7 +75,7 @@ export default function GlassHeader() {
           <motion.button
             className="md:hidden p-2 text-foreground"
             onClick={toggleMenu}
-            aria-label="Toggle menu"
+            aria-label={menuToggleLabel}
             whileTap={{ scale: 0.95 }}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -79,20 +94,18 @@ export default function GlassHeader() {
             transition={{ duration: 0.3 }}
           >
             <nav className="flex flex-col space-y-4 text-sm font-medium">
-              {["skills", "projects", "education"].map((item, index) => (
+              {navigation.map((item, index) => (
                 <motion.a
-                  key={item}
-                  href={`#${item}`}
+                  key={item.id}
+                  href={`#${item.id}`}
                   className="transition-colors hover:text-foreground/80 text-foreground/60 py-2"
                   onClick={toggleMenu}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.2, delay: index * 0.1 }}
                 >
-                  {item === "skills" && "🛠️ "}
-                  {item === "projects" && "🚀 "}
-                  {item === "education" && "🎓 "}
-                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                  <span aria-hidden="true">{item.icon} </span>
+                  {sections[item.id]}
                 </motion.a>
               ))}
             </nav>

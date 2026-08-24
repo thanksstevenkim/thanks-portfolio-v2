@@ -6,9 +6,15 @@ import { motion } from "framer-motion";
 
 type Props = {
   data: Education;
+  title: string;
+  highlightsLabel: string;
 };
 
-export default function EducationSection({ data }: Props) {
+export default function EducationSection({
+  data,
+  title,
+  highlightsLabel,
+}: Props) {
   return (
     <section
       id="education"
@@ -17,7 +23,7 @@ export default function EducationSection({ data }: Props) {
       <div className="container max-w-4xl mx-auto px-6 md:px-4">
         <MotionWrapper>
           <h2 className="text-2xl font-bold mb-8 text-center md:text-left">
-            🎓 Education
+            🎓 {title}
           </h2>
         </MotionWrapper>
 
@@ -48,13 +54,13 @@ export default function EducationSection({ data }: Props) {
                       <Award className="h-4 w-4 text-purple-500" />
                     </div>
                     <h4 className="text-sm font-medium">
-                      ✨ Achievements & Activities
+                      ✨ {highlightsLabel}
                     </h4>
                   </div>
                   <ul className="list-none ml-4 space-y-2 text-sm">
                     {edu.achievements.map((achievement, i) => (
                       <motion.li
-                        key={i}
+                        key={achievement}
                         className="text-muted-foreground relative pl-6"
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}

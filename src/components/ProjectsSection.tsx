@@ -6,22 +6,28 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { Github } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { GlassCard } from "./ui/glass-card";
 import MotionWrapper from "./MotionWrapper";
 import { motion } from "framer-motion";
 
 type Props = {
   data: Projects;
+  title: string;
+  repositoryLabel: string;
 };
 
-export default function ProjectsSection({ data }: Props) {
+export default function ProjectsSection({
+  data,
+  title,
+  repositoryLabel,
+}: Props) {
   return (
     <section id="projects" className="py-12 relative">
       <div className="container max-w-4xl mx-auto px-6 md:px-4">
         <MotionWrapper>
           <h2 className="text-2xl font-bold mb-8 text-center md:text-left">
-            🚀 Projects
+            🚀 {title}
           </h2>
         </MotionWrapper>
 
@@ -38,7 +44,7 @@ export default function ProjectsSection({ data }: Props) {
                   <ul className="list-disc ml-4 space-y-1 text-sm group-hover:space-y-2 transition-all duration-300">
                     {project.description.map((desc, i) => (
                       <motion.li
-                        key={i}
+                        key={desc}
                         className="text-muted-foreground"
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -50,18 +56,32 @@ export default function ProjectsSection({ data }: Props) {
                     ))}
                   </ul>
                 </CardContent>
-                <CardFooter className="flex justify-center md:justify-start items-center border-t border-border/30 bg-gradient-to-r from-purple-500/5 to-pink-500/5">
+                <CardFooter className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-2 border-t border-border/30 bg-gradient-to-r from-purple-500/5 to-pink-500/5 pt-6">
                   <motion.a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-sm text-muted-foreground hover:text-purple-500 transition-colors group/link pt-8"
+                    className="flex items-center text-sm text-muted-foreground hover:text-purple-500 transition-colors group/link"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <Github className="h-4 w-4 mr-2 group-hover/link:rotate-12 transition-transform duration-300" />
-                    View on GitHub 🔗
+                    {repositoryLabel}
                   </motion.a>
+                  {project.evidence?.map((link) => (
+                    <motion.a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-sm text-muted-foreground hover:text-purple-500 transition-colors"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      {link.label}
+                    </motion.a>
+                  ))}
                 </CardFooter>
               </GlassCard>
             </MotionWrapper>
