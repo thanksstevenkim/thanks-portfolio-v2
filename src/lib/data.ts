@@ -97,7 +97,6 @@ export const skills: Skills = [
       "장애 보고서",
       "업데이트 로그",
       "Markdown",
-      "Mermaid",
       "한국어 (모국어)",
       "일본어 (JLPT N1)",
       "영어 (TOEIC 810)",
