@@ -73,11 +73,6 @@ export const skills: Skills = [
       "장애 조사",
       "업그레이드·롤백 절차",
       "백업·복구 검증",
-      "AWS / S3",
-      "OVHcloud",
-      "Vultr",
-      "Fly.io",
-      "Vercel",
     ],
   },
   {
@@ -109,17 +104,13 @@ export const skills: Skills = [
     ],
   },
   {
-    title: "웹 개발",
+    title: "스크립팅 및 웹",
     icon: "💻",
     items: [
-      "Astro",
-      "TypeScript",
-      "JavaScript",
       "Python",
+      "JavaScript",
+      "TypeScript",
       "HTML / CSS",
-      "Tailwind CSS",
-      "Remix",
-      "Node.js",
     ],
   },
 ];

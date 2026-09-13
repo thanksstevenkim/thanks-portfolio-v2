@@ -73,11 +73,6 @@ export const skills: Skills = [
       "Incident Investigation",
       "Upgrade & Rollback Procedures",
       "Backup & Restore Testing",
-      "AWS / S3",
-      "OVHcloud",
-      "Vultr",
-      "Fly.io",
-      "Vercel",
     ],
   },
   {
@@ -109,17 +104,13 @@ export const skills: Skills = [
     ],
   },
   {
-    title: "Web Development",
+    title: "Scripting & Web",
     icon: "💻",
     items: [
-      "Astro",
-      "TypeScript",
-      "JavaScript",
       "Python",
+      "JavaScript",
+      "TypeScript",
       "HTML / CSS",
-      "Tailwind CSS",
-      "Remix",
-      "Node.js",
     ],
   },
 ];
